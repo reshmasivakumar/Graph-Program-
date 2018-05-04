@@ -1,0 +1,58 @@
+reshms@uw1-320-04:~/ucourses/css343/assignments/assign3$  g++ -std=c++14 -g -Wall -Wextra graph.cpp vertex.cpp edge.cpp ass3.cpp
+graph.cpp: In member function ‘bool Graph::add(std::__cxx11::string, std::__cxx11::string, int)’:
+graph.cpp:53:24: warning: variable ‘endVertex’ set but not used [-Wunused-but-set-variable]
+  Vertex *startVertex, *endVertex;
+                        ^
+reshms@uw1-320-04:~/ucourses/css343/assignments/assign3$ valgrind --leak-check=full --show-leak-kinds=all ./a.out
+==21988== Memcheck, a memory error detector
+==21988== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==21988== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==21988== Command: ./a.out
+==21988== 
+testGraph0
+Checing ....3OK: 3 vertices
+OK: 3 edges
+OK: DFS*
+OK: BFS
+OK: Djisktra
+testGraph1
+OK: 10 vertices
+OK: 9 edges
+OK: DFS
+OK: BFS
+OK: Djisktra
+OK: 21 vertices
+OK: 24 edges
+
+OK: DFS from A
+OK: DFS from O
+OK: BFS from A
+OK: BFS from D
+OK: DFS from U
+OK: BFS from U
+OK: Djisktra O
+==21988== 
+==21988== HEAP SUMMARY:
+==21988==     in use at exit: 72,704 bytes in 1 blocks
+==21988==   total heap usage: 295 allocs, 294 frees, 125,667 bytes allocated
+==21988== 
+==21988== 72,704 bytes in 1 blocks are still reachable in loss record 1 of 1
+==21988==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==21988==    by 0x4EC3EFF: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.21)
+==21988==    by 0x40106B9: call_init.part.0 (dl-init.c:72)
+==21988==    by 0x40107CA: call_init (dl-init.c:30)
+==21988==    by 0x40107CA: _dl_init (dl-init.c:120)
+==21988==    by 0x4000C69: ??? (in /lib/x86_64-linux-gnu/ld-2.23.so)
+==21988== 
+==21988== LEAK SUMMARY:
+==21988==    definitely lost: 0 bytes in 0 blocks
+==21988==    indirectly lost: 0 bytes in 0 blocks
+==21988==      possibly lost: 0 bytes in 0 blocks
+==21988==    still reachable: 72,704 bytes in 1 blocks
+==21988==         suppressed: 0 bytes in 0 blocks
+==21988== 
+==21988== For counts of detected and suppressed errors, rerun with: -v
+==21988== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+reshms@uw1-320-04:~/ucourses/css343/assignments/assign3$ 
+
+
